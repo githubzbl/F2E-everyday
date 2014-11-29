@@ -1,0 +1,24 @@
+div#wrapper {
+	max-width: 1000px;
+	margin: 100px auto;
+	font: 18px Helvetica;
+}
+th, tr {
+	text-align: center;
+}
+thead tr th{
+	cursor:pointer;
+	background:#247;
+	color: #fff;
+	
+}
+	
+thead tr th:hover{
+	background:#4fbcf1;
+	color: #fff;
+}
+caption {
+	font:32px STHeiti;
+	text-align: center;
+	letter-spacing: .8em;
+}
