@@ -22,7 +22,7 @@ $(function () {
 				if (td == tdCont[i]) {
 				$('tbody').append($(this));
 				}
-			})
+			});
 		}
 	}
 	// 求和
