@@ -1,0 +1,22 @@
+{
+  "name": "12.1-Node-application",
+  "version": "1.0.0",
+  "description": "A networking app",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mongoDB",
+    "Backbone"
+  ],
+  "author": "@Coolzbl",
+  "license": "ISC"
+}
