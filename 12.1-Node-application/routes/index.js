@@ -6,4 +6,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+/* time page*/
+router.get('/time', function (req, res) {
+	res.send('The time is' + new Date().toString())
+})
+
+
 module.exports = router;

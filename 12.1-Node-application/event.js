@@ -1,12 +1,10 @@
-//event.js
+// httpserverrequestget.js
 
-var EventEmitter = require('events').EventEmitter;
-var event = new EventEmitter();
+var http = require('http')
+var url = require('url')
+var util = require('util')
 
-event.on('some_event', function() {
-	console.log('some_event occured.')
-	/* Act on the event */
-});
-setTimeout(function() {
-	event.emit('some_event');
-}, 1000);
+http.createServer(function (req, res) {
+	res.writeHead(200, {'Cotent-Type': 'text/plain'})
+	res.end(util.inspect(url.parse(req.url, true)))
+}).listen(3000);
