@@ -1,8 +1,40 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    h1 layout
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(type="text/css"
+					rel="stylesheet"
+					href="/libs/bootstrap/dist/css/bootstrap.min.css"
+					media="all")
+		script(src="/libs/jquery/dist/jquery.min.js")
+		script(src="/libs/bootstrap/dist/js/bootstrap.min.js") 
+	body
+		div.navbar.nav-default.navbar-fixed-top
+			div.narbar-inner
+				div.container
+				a.btn.btn-navbar(data-toggle='collapse' data-target='.nav-collapse')
+				a.brand(href='/') Microblog
+					div#navbar.nav-collapse
+						ul.nav
+							li.active
+								a(href='/') 首页
+							- if (!user)
+								li
+									a(href='/login') 登录
+								li
+									a(href='/reg') 注册
+							- else
+								li
+									a(href='/logout') 退出
+		div#container.container
+			- if (success)
+				div.alert.alert-success= success
+			- if (error)
+				div.alert.alert-error= error
+			block content
+		div#footer.footer
+			!='<hr />'
+			p
+				a(href='http://cool4zbl.com' target='_blank') Copyright © ZBL  
+
