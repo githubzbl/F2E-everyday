@@ -1,4 +1,5 @@
-// db.js
+// db.js 
+// 输出创建的数据库连接
 
 var settings =require('../settings'),
 		Db = require('mongodb').Db,

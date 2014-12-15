@@ -1,0 +1,25 @@
+//- reg.jade
+
+extends layout
+
+block content
+	.container
+		h2.page-header Register
+		form.form-horizontal(method='post')
+			filedset
+				.form-group
+					label.control-label.col-sm-2(for='username') 用户名
+					.col-sm-5
+						input.form-control#username(type='email' name='username' placeholder='请输入您的邮箱地址' )
+				.form-group
+					label.control-label.col-sm-2(for='password') 密码
+					.col-sm-5
+						input.form-control#password(type='password' name='password' placeholder='请输入您的密码')
+				.form-group
+					label.control-label.col-sm-2(for='password-repeat') 重复输入密码
+					.col-sm-5
+						input.form-control#password-repeat(type='password' name='password-repeat' placeholder='请再输入您的密码')
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.btn.btn-primary(type='submit') 注册
+

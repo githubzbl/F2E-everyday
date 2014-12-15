@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser'); // Cookie解析中间件
 var bodyParser = require('body-parser');
-// new
+
+// Express会话中间件，支持把会话信息存储在Mongo数据库
 var session = require('express-session')
-var MongoStore = require('connect-mongo')(session)
+var MongoStore = require('connect-mongo')(session)  
 var settings = require('./settings')
 var flash = require('connect-flash')
 
@@ -26,13 +27,16 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.locals.moment = require('moment');
 
 /* Cookie Middleware */
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); // 配置文件静态服务器
+app.use(express.static(path.join(__dirname, 'public'))); // 配置静态文件服务器
 app.use(flash())
 
 /* Session */
+/* 把store参数设置为 MongoStore 实例，把会话信息存储在Mongo数据库 */
+
 app.use(session({
   secret: settings.cookieSecret,
   store: new MongoStore({
@@ -42,13 +46,14 @@ app.use(session({
 
 
 app.use(function (req, res, next) {
-  console.log('app.usr local')
-
-  var error = req.flash('error')
-  var success = req.flash('success')
+  // console.log('app.usr local')
+  
   res.locals.user = req.session.user
   res.locals.post = req.session.post
+  var error = req.flash('error')
   res.locals.error = error.length ? error : null
+
+  var success = req.flash('success')
   res.locals.success = success.length ? success : null
   next()
 })

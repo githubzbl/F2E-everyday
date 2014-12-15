@@ -1,1 +1,7 @@
 //- say.jade
+
+form.well.form-inline(method='post' action='/post')
+	.form-group
+			input#post(type='text' name='text')
+			button.btn.btn-success.col-md-pull-3(type='submit')
+				span.glyphicon.glyphicon-comment 发围脖

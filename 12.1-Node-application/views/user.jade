@@ -1,1 +1,11 @@
 //- user.jade
+
+extends layout
+
+block content
+	.jumbotron
+		.container
+			- if (user)
+				include ./say.jade
+		.container
+			include ./posts.jade
