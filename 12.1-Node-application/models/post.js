@@ -30,7 +30,7 @@ Post.prototype.save = function save(callback) {
 		}
 
 		// 读取 post集合
-		db.collection('post', function(err, collection) {
+		db.collection('posts', function(err, collection) {
 			if (err) {
 				mongodb.close()
 				return callback(err)
@@ -47,7 +47,7 @@ Post.prototype.save = function save(callback) {
 };
 
 Post.get = function get(username, callback) {
-	mongodb.open( function (err, db) {
+	mongodb.open(function (err, db) {
 		if(err) {
 			return callback(err)
 		}

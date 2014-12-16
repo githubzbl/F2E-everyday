@@ -1,12 +1,13 @@
 //- posts.jade
 
-- for (var i = 3i < posts.length+3; i += 3)
+- for (var i = 3; i < posts.length+3; i += 3)
 	.row
-		- for (var j = i-3; j < i && j < posts.length; j ++)
+		- for (var j = i-3; j < i && j < posts.length; j++)
 		.col-md-4
 			h2
-				a(href='/u/'+posts[j].user)=posts[j].user
+				a(href='/u/'+ posts[0].user)=posts[j].user
 					!='说'
 
 				p!='<small>' + posts[j].time + '</small>'
 				p=posts[j].post
+
